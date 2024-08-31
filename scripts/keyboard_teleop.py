@@ -97,9 +97,18 @@ if __name__ == "__main__":
     
     selected_joint = 'front_omni_controller'
     
-    print("Use 'w', 'x', 'd', 'a', 's' to select the joint to control.")
-    print("Use the up and down arrow keys to increase/decrease effort.")
-    print("Press 'Ctrl+C' to quit.")
+    msg = """
+    Control pir-b-001 !
+    ---------------------------
+    Choosing the controller:
+        w               w/x: front/rear omni wheels 
+    a   s   d           d/a: front/rear guiding wheels 
+        x                 s: stop all controllers
+
+    Use the up and down arrow keys to increase/decrease effort.
+    CTRL-C to quit
+    """
+    print(msg)
     
     try:
         while not rospy.is_shutdown():
