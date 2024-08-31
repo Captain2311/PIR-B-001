@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">
 
+<xacro:property name="_pi" value="3.14159"/>
+
+<!-- Retrieve parameters from the ROS parameter server -->
+<xacro:property name="spring_param_file" value="$(find pir-b-001)/config/spring_param.yaml" />
+<xacro:property name="spring" value="${xacro.load_yaml(spring_param_file)}"/>
+
+<xacro:property name="right_linkj_spring_stiffness" value="${spring['right_linkj']['spring_stiffness']}" />
+<xacro:property name="right_linkj_spring_reference" value="${spring['right_linkj']['spring_reference']}" />
+
+<xacro:property name="left_linkj_spring_stiffness" value="${spring['left_linkj']['spring_stiffness']}" />
+<xacro:property name="left_linkj_spring_reference" value="${spring['left_linkj']['spring_reference']}" />
+
+<xacro:property name="link3j_spring_stiffness" value="${spring['link3j']['spring_stiffness']}" />
+<xacro:property name="link3j_spring_reference" value="${spring['link3j']['spring_reference']}" />
+
 <!-- joints transmissions -->
 <transmission name="right_wheel1j_trans">
   <type>transmission_interface/SimpleTransmission</type>
@@ -72,27 +87,27 @@
 <!-- Torsional Springs -->
 <gazebo reference="right_Linkj">
   <implicitSpringDamper>true</implicitSpringDamper>
-  <springStiffness>1</springStiffness>
-  <springReference>0.0</springReference>
-  <damping>0.2</damping>
+  <springStiffness>${right_linkj_spring_stiffness}</springStiffness>
+  <springReference>${right_linkj_spring_reference * _pi / 180}</springReference> 
+  <damping>0.5</damping>
   <kp value="60.0" />
   <kd value="0.0" />
 </gazebo>
 
 <gazebo reference="left_Linkj">
   <implicitSpringDamper>true</implicitSpringDamper>
-  <springStiffness>1</springStiffness>
-  <springReference>0.0</springReference>
-  <damping>0.2</damping>
+  <springStiffness>${left_linkj_spring_stiffness}</springStiffness>
+  <springReference>${left_linkj_spring_reference * _pi / 180}</springReference>
+  <damping>0.5</damping>
   <kp value="60.0" />
   <kd value="0.0" />
 </gazebo>
 
 <gazebo reference="link3j">
   <implicitSpringDamper>true</implicitSpringDamper>
-  <springStiffness>1</springStiffness>
-  <springReference>0.0</springReference>
-  <damping>0.2</damping>
+  <springStiffness>${link3j_spring_stiffness}</springStiffness>
+  <springReference>${link3j_spring_reference * _pi / 180}</springReference>
+  <damping>0.5</damping>
   <kp value="60.0" />
   <kd value="0.0" />
 </gazebo>
@@ -165,24 +180,6 @@
 <gazebo reference="camera_link">
   <material>Gazebo/YellowGlow</material>
 </gazebo>
-
-
-<!-- <gazebo>
-  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-    <updateRate>100.0</updateRate>
-    <robotNamespace>/pir_b_001</robotNamespace>
-    <leftFrontJoint>omni3j</leftFrontJoint>
-    <rightFrontJoint>omni33j</rightFrontJoint>
-    <leftRearJoint>omni1j</leftRearJoint>
-    <rightRearJoint>omni11j</rightRearJoint>
-    <wheelSeparation>0.09</wheelSeparation>
-    <wheelDiameter>0.1</wheelDiameter>
-    <robotBaseFrame>base_link</robotBaseFrame>
-    <torque>50</torque>
-    <topicName>/cmd_vel</topicName>
-    <broadcastTF>true</broadcastTF>
-  </plugin>
-</gazebo>  -->
 
   <!-- Camera Sensor -->
   <gazebo reference="camera_link">

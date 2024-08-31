@@ -1,0 +1,17 @@
+# spring_params.yaml
+
+#   spring_stiffness: K 
+#   spring_reference: Natural angle in deg 
+
+right_linkj:
+  spring_stiffness: 3.0       
+  spring_reference: 0      
+
+left_linkj:
+  spring_stiffness: 5.0
+  spring_reference: 0
+
+link3j:
+  spring_stiffness: 5.0
+  spring_reference: 0
+

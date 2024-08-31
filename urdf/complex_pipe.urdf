@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="complex_pipe">
+  <link
+    name="pipe_link">
+    <inertial>
+      <origin
+        xyz="0 0 -1.79"
+        rpy="1.57079632679 0 0" />
+      <mass
+        value="137.304491431483" />
+      <inertia
+        ixx="759.779078324094"
+        ixy="1.38703733427916"
+        ixz="45.2522412844345"
+        iyy="1221.37950572202"
+        iyz="-23.4848420537447"
+        izz="725.697944815137" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 -1.79"
+        rpy="1.57079632679 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/complex_pipe_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -1.79"
+        rpy="1.57079632679 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/complex_pipe_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+  <gazebo reference="pipe_link">
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+
+</robot>

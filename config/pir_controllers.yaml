@@ -1,4 +1,4 @@
-controller_joint_names: ['', 'right_wheel1j', 'left_wheel1j', ]
+controller_joint_names: ['', 'right_wheel1j', 'left_wheel1j', 'omni1j', 'omni11j', 'omni3j', 'omni33j', ]
 pir_b_001:
   # Publish all joint states -----------------------------------
   joint_state_controller:

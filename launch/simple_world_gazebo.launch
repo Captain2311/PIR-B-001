@@ -4,6 +4,7 @@
   <!-- Load parameters for the controllers and other configurations -->
   <rosparam file="$(find pir-b-001)/config/pir_controllers.yaml" command="load"/>
   <rosparam file="$(find pir-b-001)/config/pir_param.yaml" command="load" /> 
+  <rosparam file="$(find pir-b-001)/config/spring_param.yaml" command="load" /> 
 
   <!-- Send URDF to the parameter server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find pir-b-001)/urdf/PIR-B-ASSY-001-integeration.xacro'" /> 
