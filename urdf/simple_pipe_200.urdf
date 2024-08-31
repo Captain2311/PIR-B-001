@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="simple_pipe_200">
+  <link
+    name="pipe_link">
+    <inertial>
+      <origin
+        xyz="0 0 0.106"
+        rpy="1.57079632679 0 0" />
+      <mass
+        value="22.1352657637449" />
+      <inertia
+        ixx="10.3541290072399"
+        ixy="3.16613753331128E-07"
+        ixz="-0.0601705624440979"
+        iyy="12.5458325670291"
+        iyz="2.61987888555496E-07"
+        izz="2.4267527589344" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0.106"
+        rpy="1.57079632679 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/pipe_link_200.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.106"
+        rpy="1.57079632679 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/pipe_link_200.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+  <gazebo reference="pipe_link">
+    <material>Gazebo/GreyTransparent</material>
+  </gazebo>
+
+</robot>

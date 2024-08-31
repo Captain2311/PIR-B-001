@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="pipe">
+<link
+    name="pipe">
+    <inertial>
+      <origin
+        xyz="0.00464580299161508 -0.00157654781508274 1.29496402264534E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.05" />
+      <inertia
+        ixx="8.87834221142331E-05"
+        ixy="7.79394477944035E-08"
+        ixz="9.12723410794375E-12"
+        iyy="3.69411152186283E-05"
+        iyz="-1.02575311402571E-11"
+        izz="7.54787982319766E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/pipe.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/pipe.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+</robot>

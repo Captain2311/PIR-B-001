@@ -1,0 +1,29 @@
+controller_joint_names: ['', 'right_wheel1j', 'left_wheel1j', ]
+pir_b_001:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: "joint_state_controller/JointStateController"
+    publish_rate: 50  
+  # Effort Controllers ---------------------------------------
+  right_wheel1j_controller:
+    type: "effort_controllers/JointEffortController"
+    joint: right_wheel1j
+    pid: {p: 10.0, i: 0.001, d: 0.0001}
+
+  left_wheel1j_controller:
+    type: "effort_controllers/JointEffortController"
+    joint: left_wheel1j
+    pid: {p: 10.0, i: 0.001, d: 0.0001}
+
+  front_omni_controller:
+    type: "effort_controllers/JointGroupEffortController"
+    joints: 
+      - omni1j
+      - omni11j
+      
+  rear_omni_controller:
+    type: "effort_controllers/JointGroupEffortController"
+    joints: 
+      - omni3j
+      - omni33j
+  

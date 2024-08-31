@@ -1,0 +1,44 @@
+pir_b_001:
+  gazebo_ros_control:
+    pid_gains:
+      right_wheel1j:
+          p: 10.0    
+          i: 0.01     
+          d: 0.001     
+          i_clamp_max: 1.0  
+          i_clamp_min: -1.0 
+
+      left_wheel1j:
+        p: 10.0    
+        i: 0.01     
+        d: 0.001     
+        i_clamp_max: 10.0  
+        i_clamp_min: -1.0 
+
+      omni1j:
+          p: 10.0    
+          i: 0.01     
+          d: 0.001     
+          i_clamp_max: 1.0  
+          i_clamp_min: -1.0 
+      
+      omni11j:
+          p: 10.0    
+          i: 0.01     
+          d: 0.001     
+          i_clamp_max: 1.0  
+          i_clamp_min: -1.0 
+
+      omni3j:
+          p: 10.0    
+          i: 0.01     
+          d: 0.001     
+          i_clamp_max: 1.0  
+          i_clamp_min: -1.0 
+      
+      omni33j:
+          p: 10.0    
+          i: 0.01     
+          d: 0.001     
+          i_clamp_max: 1.0  
+          i_clamp_min: -1.0 

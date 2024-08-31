@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">
+
+<!-- joints transmissions -->
+<transmission name="right_wheel1j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="right_wheel1j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_wheel1m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="left_wheel1j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="left_wheel1j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_wheel1m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="omni1j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="omni1j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="omni1m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="omni11j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="omni11j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="omni11m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="omni3j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="omni3j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="omni3m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="omni33j_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="omni33j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="omni33m">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/pir_b_001</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+  </plugin>
+</gazebo>
+
+<!-- Torsional Springs -->
+<gazebo reference="right_Linkj">
+  <implicitSpringDamper>true</implicitSpringDamper>
+  <springStiffness>1</springStiffness>
+  <springReference>0.0</springReference>
+  <damping>0.2</damping>
+  <kp value="60.0" />
+  <kd value="0.0" />
+</gazebo>
+
+<gazebo reference="left_Linkj">
+  <implicitSpringDamper>true</implicitSpringDamper>
+  <springStiffness>1</springStiffness>
+  <springReference>0.0</springReference>
+  <damping>0.2</damping>
+  <kp value="60.0" />
+  <kd value="0.0" />
+</gazebo>
+
+<gazebo reference="link3j">
+  <implicitSpringDamper>true</implicitSpringDamper>
+  <springStiffness>1</springStiffness>
+  <springReference>0.0</springReference>
+  <damping>0.2</damping>
+  <kp value="60.0" />
+  <kd value="0.0" />
+</gazebo>
+
+<!-- Links on Gazebo -->
+<gazebo reference="omni1">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="omni11">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="omni3">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="omni33">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="omni2">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="omni22">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="right_wheel">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+
+<gazebo reference="left_wheel">
+  <mu1 value="0.5"/>
+  <mu2 value="0.7"/>
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+
+<gazebo reference="right_Link">
+  <material>Gazebo/ZincYellow</material>
+</gazebo>
+
+<gazebo reference="left_Link">
+  <material>Gazebo/ZincYellow</material>
+</gazebo>
+
+<gazebo reference="link3">
+  <material>Gazebo/ZincYellow</material>
+</gazebo>
+
+<gazebo reference="base_link">
+  <material>Gazebo/ZincYellow</material>
+</gazebo>
+
+<gazebo reference="camera_link">
+  <material>Gazebo/YellowGlow</material>
+</gazebo>
+
+
+<!-- <gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/pir_b_001</robotNamespace>
+    <leftFrontJoint>omni3j</leftFrontJoint>
+    <rightFrontJoint>omni33j</rightFrontJoint>
+    <leftRearJoint>omni1j</leftRearJoint>
+    <rightRearJoint>omni11j</rightRearJoint>
+    <wheelSeparation>0.09</wheelSeparation>
+    <wheelDiameter>0.1</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>50</torque>
+    <topicName>/cmd_vel</topicName>
+    <broadcastTF>true</broadcastTF>
+  </plugin>
+</gazebo>  -->
+
+  <!-- Camera Sensor -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

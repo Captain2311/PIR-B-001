@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">
+
+  <!-- Include the robot kinematic and dynamic description file -->
+  <xacro:include filename="PIR-B-ASSY-001-description.xacro"/>
+
+  <!-- Include the camera -->
+  <xacro:include filename="camera.xacro"/>
+
+  <!-- Include the gazebo plugins file -->
+  <xacro:include filename="PIR-B-ASSY-001-gazebo.xacro"/>
+
+</robot>
