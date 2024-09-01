@@ -86,30 +86,30 @@
 
 <!-- Torsional Springs -->
 <gazebo reference="right_Linkj">
-  <implicitSpringDamper>true</implicitSpringDamper>
+  <!-- <implicitSpringDamper>true</implicitSpringDamper>
+  <erp>0.2</erp>
+  <cfm>0.01</cfm> -->
   <springStiffness>${right_linkj_spring_stiffness}</springStiffness>
   <springReference>${right_linkj_spring_reference * _pi / 180}</springReference> 
-  <damping>0.5</damping>
-  <kp value="60.0" />
-  <kd value="0.0" />
+  <damping>10.0</damping>
 </gazebo>
 
 <gazebo reference="left_Linkj">
-  <implicitSpringDamper>true</implicitSpringDamper>
+  <!-- <implicitSpringDamper>true</implicitSpringDamper>
+  <erp>0.2</erp>
+  <cfm>0.01</cfm> -->
   <springStiffness>${left_linkj_spring_stiffness}</springStiffness>
   <springReference>${left_linkj_spring_reference * _pi / 180}</springReference>
-  <damping>0.5</damping>
-  <kp value="60.0" />
-  <kd value="0.0" />
+  <damping>10.0</damping>
 </gazebo>
 
 <gazebo reference="link3j">
-  <implicitSpringDamper>true</implicitSpringDamper>
+  <!-- <implicitSpringDamper>true</implicitSpringDamper>
+  <erp>0.2</erp>
+  <cfm>0.01</cfm> -->
   <springStiffness>${link3j_spring_stiffness}</springStiffness>
   <springReference>${link3j_spring_reference * _pi / 180}</springReference>
-  <damping>0.5</damping>
-  <kp value="60.0" />
-  <kd value="0.0" />
+  <damping>10.0</damping>
 </gazebo>
 
 <!-- Links on Gazebo -->
@@ -163,18 +163,22 @@
 
 <gazebo reference="right_Link">
   <material>Gazebo/ZincYellow</material>
+  <!-- <dampingFactor>0.1</dampingFactor> -->
 </gazebo>
 
 <gazebo reference="left_Link">
   <material>Gazebo/ZincYellow</material>
+  <!-- <dampingFactor>0.1</dampingFactor> -->
 </gazebo>
 
 <gazebo reference="link3">
   <material>Gazebo/ZincYellow</material>
+  <!-- <dampingFactor>0.1</dampingFactor> -->
 </gazebo>
 
 <gazebo reference="base_link">
   <material>Gazebo/ZincYellow</material>
+  <!-- <dampingFactor>0.1</dampingFactor> -->
 </gazebo>
 
 <gazebo reference="camera_link">

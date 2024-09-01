@@ -88,7 +88,7 @@
   </link>
   <joint
     name="right_Linkj"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="-0.0014878 0.0595 0"
       rpy="1.57079632679489 0 -3.14159265358979" />
@@ -97,8 +97,8 @@
     <child
       link="right_Link" />
     <axis
-      xyz="1 0 0" />
-      <limit lower="-1.57" upper="1.57" effort="100" velocity="10"/>
+      xyz="-1 0 0" />
+      <limit effort="10" velocity="10"/>
   </joint>
   <link
     name="right_wheel1">
@@ -368,7 +368,7 @@
   </link>
   <joint
     name="left_Linkj"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0.0109878 -0.0625 0"
       rpy="1.5707963267949 0 0" />
@@ -378,7 +378,7 @@
       link="left_Link" />
     <axis
       xyz="1 0 0" />
-      <limit lower="-1.57" upper="1.57" effort="100" velocity="10"/>
+      <limit effort="10" velocity="10"/>
   </joint>
   <link
     name="link3">
@@ -422,7 +422,7 @@
   </link>
   <joint
     name="link3j"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0.0044878 0 0.122"
       rpy="0 0 3.14159265358979" />
@@ -431,8 +431,8 @@
     <child
       link="link3" />
     <axis
-      xyz="-1 0 0" />
-    <limit lower="-1.57" upper="1.57" effort="100" velocity="10"/>
+      xyz="1 0 0" />
+    <limit effort="10" velocity="10"/>
   </joint>
   <link
     name="left_wheel1">

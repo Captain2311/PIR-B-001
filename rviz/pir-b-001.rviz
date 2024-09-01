@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Grid1
+        - /TF1
         - /TF1/Frames1
         - /Camera1
       Splitter Ratio: 0.5
@@ -149,22 +150,78 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: true
+        camera_link:
+          Value: false
+        left_Link:
+          Value: false
+        left_wheel:
+          Value: false
+        left_wheel1:
+          Value: false
+        link3:
+          Value: false
+        omni1:
+          Value: false
+        omni11:
+          Value: false
+        omni2:
+          Value: false
+        omni22:
+          Value: false
+        omni3:
+          Value: false
+        omni33:
+          Value: false
+        right_Link:
+          Value: true
+        right_wheel:
+          Value: false
+        right_wheel1:
+          Value: false
       Marker Alpha: 1
-      Marker Scale: 0.20000000298023224
+      Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        base_footprint:
+          base_link:
+            left_Link:
+              link3:
+                left_wheel1:
+                  left_wheel:
+                    {}
+                omni3:
+                  {}
+                omni33:
+                  {}
+              omni2:
+                {}
+              omni22:
+                {}
+            right_Link:
+              camera_link:
+                {}
+              omni1:
+                {}
+              omni11:
+                {}
+              right_wheel1:
+                right_wheel:
+                  {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
