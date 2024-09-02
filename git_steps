@@ -1,0 +1,9 @@
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/Captain2311/PIR-B-001.git
+$ cd ~/catkin_ws
+$ rosdep install --from-paths src --ignore-src -r -y
+$ catkin_make / $ catkin build
+$ source ~/catkin_ws/devel/setup.bash
+
+
+

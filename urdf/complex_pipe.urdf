@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!-- This pipe's diameter is 150 mm and is 3 mm thick with principal coefficients of friction of 0.3 and 0.8 -->
 <robot
   name="complex_pipe">
   <link
-    name="pipe_link">
+    name="complex_pipe_link">
     <inertial>
       <origin
-        xyz="0 0 -1.79"
-        rpy="1.57079632679 0 0" />
+        xyz="2.43617939524912 -0.839780634404355 0.998775473844368"
+        rpy="0 0 0" />
       <mass
-        value="137.304491431483" />
+        value="63.1313238293648" />
       <inertia
-        ixx="759.779078324094"
-        ixy="1.38703733427916"
-        ixz="45.2522412844345"
-        iyy="1221.37950572202"
-        iyz="-23.4848420537447"
-        izz="725.697944815137" />
+        ixx="223.011913224004"
+        ixy="38.7551478764222"
+        ixz="-34.116789457912"
+        iyy="201.392790674475"
+        iyz="33.0327977477418"
+        izz="270.652856972281" />
     </inertial>
     <visual>
       <origin
-        xyz="0 0 -1.79"
-        rpy="1.57079632679 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
         <mesh
           filename="package://pir-b-001/meshes/complex_pipe_link.STL" />
@@ -36,19 +34,27 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 -1.79"
-        rpy="1.57079632679 0 0" />
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
         <mesh
           filename="package://pir-b-001/meshes/complex_pipe_link.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.3</mu> <!-- Friction coefficient in the first direction -->
+            <mu2>0.8</mu2> <!-- Friction coefficient in the second direction -->
+          </ode>
+        </friction>
+      </surface>
     </collision>
   </link>
 
   <gazebo>
     <static>true</static>
   </gazebo>
-  <gazebo reference="pipe_link">
+  <gazebo reference="complex_pipe_link">
     <material>Gazebo/BlueTransparent</material>
   </gazebo>
 

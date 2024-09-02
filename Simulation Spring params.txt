@@ -1,0 +1,31 @@
+simple pipe:
+	# front joint 
+		stiffness: 1.0 
+		reference: 60 deg 
+	# middle joint
+		stiffness: 1.0 
+		reference: 60 deg 
+	# rear joint
+		stiffness: 1.0 
+		reference: 60 deg 
+		
+complex pipe:
+	# front joint 
+		stiffness: 1.0 
+		reference: 90 deg 
+	# middle joint
+		stiffness: 1.0 
+		reference: 90 deg 
+	# rear joint
+		stiffness: 1.0 
+		reference: 90 deg 
+	and 
+	# front joint 
+		pring_stiffness: 2.2       
+		spring_reference: 90
+	# middle joint
+		pring_stiffness: 2.2       
+		spring_reference: 90
+	# rear joint
+		pring_stiffness: 2.2       
+		spring_reference: 90

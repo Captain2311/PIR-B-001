@@ -267,8 +267,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   <link
     name="omni11">
@@ -323,8 +323,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   <link
     name="left_Link">
@@ -601,8 +601,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   <link
     name="omni33">
@@ -657,8 +657,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   <link
     name="omni22">
@@ -713,8 +713,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   <link
     name="omni2">
@@ -769,8 +769,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      effort="3.5"
-      velocity="10" /> 
+      effort="10"
+      velocity="100" /> 
   </joint>
   
 </pir-b-001>

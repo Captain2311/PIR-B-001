@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This pipe's diameter is 190 mm and is 3 mm thick with principal coefficients of friction of 0.3 and 0.8 -->
+<robot
+  name="simple_pipe">
+  <link
+    name="simple_pipe_link">
+    <inertial>
+      <origin
+        xyz="0.765963671849523 0 -3.20051615015487"
+        rpy="0 0 0" />
+      <mass
+        value="53.6015722452936" />
+      <inertia
+        ixx="135.592609265775"
+        ixy="-6.3484735479565E-16"
+        ixz="4.33851043742066"
+        iyy="257.84224392069"
+        iyz="2.18498559870002E-16"
+        izz="122.748906499593" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/simple_pipe_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/simple_pipe_link.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.3</mu> <!-- Friction coefficient in the first direction -->
+            <mu2>0.8</mu2> <!-- Friction coefficient in the second direction -->
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+  <gazebo reference="simple_pipe_link">
+    <material>Gazebo/BlueTransparent</material>
+  </gazebo>
+
+</robot>
