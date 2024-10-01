@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<launch>
+    <include
+      file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <node
+      name="spawn_model"
+      pkg="gazebo_ros"
+      type="spawn_model"
+      args="-file $(find pir-b-001)/urdf/junctions_pipes.urdf -urdf -model junctions_pipes -z 0.075 -R 1.57079632679"
+      output="screen" />
+  </launch>
+
+  <!-- rosbag record -O trial_1 /camera/image_raw /imu /pir_b_001/front_omni_controller/command /pir_b_001/left_wheel1j_controller/command /pir_b_001/rear_omni_controller/command /pir_b_001/right_wheel1j_controller/command -->

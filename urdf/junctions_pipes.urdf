@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="junctions_pipe">
+  <link
+    name="pipeLink">
+    <inertial>
+      <origin
+        xyz="2.58785046728972 2.30934579439252 1.96346522241511"
+        rpy="0 0 0" />
+      <mass
+        value="154.172025846741" />
+      <inertia
+        ixx="97.86448232784"
+        ixy="-1.81835865608866E-15"
+        ixz="-1.22955549712801E-15"
+        iyy="97.3768631661768"
+        iyz="5.35699903411433E-15"
+        izz="125.767716710613" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/pipeLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.858823529411765 0.858823529411765 0.858823529411765 0.1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/pipeLink.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.5</mu> 
+            <mu2>0.9</mu2> 
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <link
+    name="junction_link">
+    <inertial>
+      <origin
+        xyz="2.67425290035128 2.29340095776593 1.61480622469642"
+        rpy="0 0 0" />
+      <mass
+        value="85.5647121395593" />
+      <inertia
+        ixx="0.934353214902451"
+        ixy="-2.27822087994246E-06"
+        ixz="0.000270621314158882"
+        iyy="0.962336832671801"
+        iyz="-0.0438571694929339"
+        izz="0.895145433693183" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/junction_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pir-b-001/meshes/junction_link.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.5</mu> 
+            <mu2>0.9</mu2> 
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="j1"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="pipeLink" />
+    <child
+      link="junction_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+
+  <gazebo reference="pipeLink">
+    <material>Gazebo/GreyTransparent</material>
+  </gazebo>
+
+  <gazebo reference="junction_link">
+    <material>Gazebo/CoM</material>
+  </gazebo>
+
+</robot>

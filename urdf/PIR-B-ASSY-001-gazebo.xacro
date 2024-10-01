@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">        
 
 <xacro:property name="_pi" value="3.14159"/>
 
@@ -15,6 +15,13 @@
 
 <xacro:property name="link3j_spring_stiffness" value="${spring['link3j']['spring_stiffness']}" />
 <xacro:property name="link3j_spring_reference" value="${spring['link3j']['spring_reference']}" />
+
+<!-- wheel friction coefficient -->
+<xacro:property name="mu1_omni_val" value="0.5" />
+<xacro:property name="mu2_omni_val" value="0.7" />
+
+<xacro:property name="mu1_hemi_val" value="0.5" />
+<xacro:property name="mu2_hemi_val" value="0.9" />
 
 <!-- joints transmissions -->
 <transmission name="right_wheel1j_trans">
@@ -91,7 +98,7 @@
   <cfm>0.01</cfm> -->
   <springStiffness>${right_linkj_spring_stiffness}</springStiffness>
   <springReference>${right_linkj_spring_reference * _pi / 180}</springReference> 
-  <damping>10.0</damping>
+  <damping>100000.0</damping>
 </gazebo>
 
 <gazebo reference="left_Linkj">
@@ -100,7 +107,7 @@
   <cfm>0.01</cfm> -->
   <springStiffness>${left_linkj_spring_stiffness}</springStiffness>
   <springReference>${left_linkj_spring_reference * _pi / 180}</springReference>
-  <damping>10.0</damping>
+  <damping>100000.0</damping>
 </gazebo>
 
 <gazebo reference="link3j">
@@ -109,55 +116,55 @@
   <cfm>0.01</cfm> -->
   <springStiffness>${link3j_spring_stiffness}</springStiffness>
   <springReference>${link3j_spring_reference * _pi / 180}</springReference>
-  <damping>10.0</damping>
+  <damping>100000.0</damping>
 </gazebo>
 
 <!-- Links on Gazebo -->
 <gazebo reference="omni1">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="omni11">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="omni3">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="omni33">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="omni2">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="omni22">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_omni_val}"/>
+  <mu2 value="${mu2_omni_val}"/>
   <material>Gazebo/Black</material>
 </gazebo>
 
 <gazebo reference="right_wheel">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_hemi_val}"/>
+  <mu2 value="${mu2_hemi_val}"/>
   <material>Gazebo/DarkGrey</material>
 </gazebo>
 
 <gazebo reference="left_wheel">
-  <mu1 value="0.5"/>
-  <mu2 value="0.7"/>
+  <mu1 value="${mu1_hemi_val}"/>
+  <mu2 value="${mu2_hemi_val}"/>
   <material>Gazebo/DarkGrey</material>
 </gazebo>
 
@@ -181,46 +188,61 @@
   <!-- <dampingFactor>0.1</dampingFactor> -->
 </gazebo>
 
+<!-- Camera Sensor -->
 <gazebo reference="camera_link">
   <material>Gazebo/YellowGlow</material>
-</gazebo>
-
-  <!-- Camera Sensor -->
-  <gazebo reference="camera_link">
-    <sensor type="camera" name="camera">
-      <update_rate>30.0</update_rate>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+  <sensor type="camera" name="camera">
+    <update_rate>30.0</update_rate>
+    <camera name="head">
+      <horizontal_fov>1.3962634</horizontal_fov>
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>300</far>
+      </clip>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.007</stddev>
+      </noise>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>30.0</updateRate>
+      <cameraName>camera</cameraName>
+      <imageTopicName>image_raw</imageTopicName>
+      <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      <frameName>camera_link</frameName>
+      <hackBaseline>0.07</hackBaseline>
+      <distortionK1>0.0</distortionK1>
+      <distortionK2>0.0</distortionK2>
+      <distortionK3>0.0</distortionK3>
+      <distortionT1>0.0</distortionT1>
+      <distortionT2>0.0</distortionT2>
+    </plugin>
+  </sensor>
+  <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>50</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
         <frameName>camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
       </plugin>
+      <pose>0 0 0 0 0 0</pose>
     </sensor>
-  </gazebo>
+</gazebo>
 
 </robot>

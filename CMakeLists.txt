@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
   tf 
   urdf
   gazebo_ros
+  cv_bridge
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions

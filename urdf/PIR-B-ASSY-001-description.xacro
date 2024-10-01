@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pir-b-001 xmlns:xacro="http://wiki.ros.org/xacro" name="pir-b-001">
-    
+
+  <xacro:property name="rolling_effort_val" value="10" />
+  <xacro:property name="rolling_velocity_val" value="50" />
+  <xacro:property name="driving_effort_val" value="10" />
+  <xacro:property name="driving_velocity_val" value="50" />
+
   <link name="base_footprint" />
   
   <link
@@ -153,8 +158,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      effort="100"
-      velocity="10" /> 
+      effort="${rolling_effort_val}"
+      velocity="${rolling_velocity_val}" /> 
   </joint>
   <link
     name="right_wheel">
@@ -267,8 +272,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   <link
     name="omni11">
@@ -323,8 +328,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   <link
     name="left_Link">
@@ -487,8 +492,8 @@
     <axis
       xyz="0 0 -1" />
     <limit
-      effort="100"
-      velocity="10" /> 
+      effort="${rolling_effort_val}"
+      velocity="${rolling_velocity_val}" /> 
   </joint>
   <link
     name="left_wheel">
@@ -601,8 +606,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   <link
     name="omni33">
@@ -657,8 +662,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   <link
     name="omni22">
@@ -713,8 +718,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   <link
     name="omni2">
@@ -769,8 +774,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      effort="10"
-      velocity="100" /> 
+      effort="${driving_effort_val}"
+      velocity="${driving_velocity_val}" /> 
   </joint>
   
 </pir-b-001>

@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<launch>
+
+  <!-- Load parameters for the controllers and other configurations -->
+  <rosparam file="$(find pir-b-001)/config/pir_controllers.yaml" command="load"/>
+  <rosparam file="$(find pir-b-001)/config/pir_param.yaml" command="load" /> 
+  <rosparam file="$(find pir-b-001)/config/spring_param.yaml" command="load" /> 
+
+  <!-- Send URDF to the parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find pir-b-001)/urdf/PIR-B-ASSY-001-integeration.xacro'" /> 
+
+  <!-- Push robot_description to factory and spawn robot in Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+    args="-urdf -param robot_description -model pir -y 0.4 -z 0.05"/>
+
+  <!-- Start robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/pir_b_001/joint_states" />
+  </node>
+
+  <!-- Start controller spawner after the robot is spawned in Gazebo -->
+  <node name="controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false"
+    output="screen" ns="/pir_b_001" args="spawn joint_state_controller right_wheel1j_controller left_wheel1j_controller front_omni_controller rear_omni_controller"/>
+
+  <!-- <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" output="screen" /> -->
+
+  <!-- Call the /gazebo/delete_model service to delete the model when shutting down -->
+  <node name="delete_model_node" pkg="pir-b-001" type="delete_model_on_shutdown.py" output="screen"/>
+
+</launch>

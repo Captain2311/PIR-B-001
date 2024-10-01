@@ -1,17 +1,16 @@
-# spring_params.yaml
-
 #   spring_stiffness: K in Nm
 #   spring_reference: Natural angle in deg 
 
 right_linkj: # front joint
-  spring_stiffness: 2.2       
-  spring_reference: 90    
+  spring_stiffness: 1.0      
+  spring_reference: -105  
 
-left_linkj: # middle joint
-  spring_stiffness: 2.2
-  spring_reference: 90
+left_linkj: # middle joint 
+# spring_reference of zero corresponds to a straight link
+  spring_stiffness: 1.0 
+  spring_reference: -52.5
 
 link3j: # rear joint
-  spring_stiffness: 2.2
-  spring_reference: 90
+  spring_stiffness: 1.0 
+  spring_reference: -105
 
