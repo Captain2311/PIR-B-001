@@ -101,14 +101,19 @@ class autonomous_cv:
 
 def main(args):
     
-    parser = argparse.ArgumentParser(description='path to weed detector model')
+    parser = argparse.ArgumentParser(description='path to navigation model')
     parser.add_argument('file_path', type=str, help='Path to the input file')
     parsed_args = parser.parse_args(args)
     
     try: 
-        rospy.init_node('autonomous_cv', anonymous= True)
+        rospy.init_node('autonomous_cv', anonymous=True)
         pir = autonomous_cv(parsed_args.file_path)
-        rospy.spin()
+        rate = rospy.Rate(20)
+        
+        while not rospy.is_shutdown():
+            rospy.spin()
+            rate.sleep()
+            
     except KeyboardInterrupt:
         rospy.loginfo("Shutting down")
         cv2.destroyAllWindows()
