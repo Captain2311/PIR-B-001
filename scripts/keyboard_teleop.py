@@ -36,13 +36,13 @@ def get_key():
 def publish_effort(selected_joint):
     global front_effort, rear_effort, right_effort, left_effort
     if selected_joint == 'front_omni_controller':
-        front_pub.publish(Float64MultiArray(data=[front_effort, front_effort]))
+        front_pub.publish(Float64MultiArray(data=[-1*front_effort, -1*front_effort]))
     elif selected_joint == 'rear_omni_controller':
-        rear_pub.publish(Float64MultiArray(data=[rear_effort, rear_effort]))
+        rear_pub.publish(Float64MultiArray(data=[-1*rear_effort, -1*rear_effort]))
     elif selected_joint == 'right_wheel1j_controller':
         right_pub.publish(Float64(data=right_effort))
     elif selected_joint == 'left_wheel1j_controller':
-        left_pub.publish(Float64(data=left_effort))
+        left_pub.publish(Float64(data=-1*left_effort))
     elif selected_joint == 'stop_controllers':
         # Stop all controllers
         front_effort = 0.0 

@@ -33,10 +33,10 @@ def get_key():
 
 def publish_effort():
     global driving_effort, rolling_effort
-    front_pub.publish(Float64MultiArray(data=[driving_effort, driving_effort]))
-    rear_pub.publish(Float64MultiArray(data=[driving_effort, driving_effort]))
+    front_pub.publish(Float64MultiArray(data=[-1*driving_effort, -1*driving_effort]))
+    rear_pub.publish(Float64MultiArray(data=[-1*driving_effort, -1*driving_effort]))
     right_pub.publish(Float64(data=rolling_effort))
-    left_pub.publish(Float64(data=rolling_effort))
+    left_pub.publish(Float64(data=-1*rolling_effort))
         
 def increase_drive_effort():
     global driving_effort
